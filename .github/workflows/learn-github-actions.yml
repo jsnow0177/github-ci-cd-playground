@@ -16,6 +16,9 @@ jobs:
     steps:
       - name: Store private key
         run: |
+          mkdir ~/.ssh
+          touch ~/.ssh/id_rsa
+          touch ~/.ssh/config
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa
           echo "Host hetzner-host" >> ~/.ssh/config
           echo "    HostName 65.21.109.224" >> ~/.ssh/config
