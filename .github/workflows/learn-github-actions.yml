@@ -21,9 +21,9 @@ jobs:
           touch ~/.ssh/config
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa
           echo "Host hetzner-host" >> ~/.ssh/config
-          echo "    HostName 65.21.109.224" >> ~/.ssh/config
+          echo "    HostName jsnow.in.ua" >> ~/.ssh/config
           echo "    Port 9922" >> ~/.ssh/config
-          echo "    User github-actions" >> ~/.ssh/config
+          echo "    User pavel" >> ~/.ssh/config
           echo "    IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
 
       - name: Put a test text
