@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es3",
+    "moduleResolution": "node",
+    "module": "CommonJS",
+    "allowJs": false,
+    "noEmit": false,
+    "newLine": "lf",
+    "declaration": false,
+
+    "lib": ["dom", "es2015", "ESNext.String"],
+    "rootDir": "./src",
+    "outDir": "./build",
+
+    "strict": true
+  },
+  "exclude": ["node_modules"]
+}

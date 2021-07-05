@@ -1,0 +1,22 @@
+{
+  "name": "github-ci-cd-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "npx tsc -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsnow0177/github-ci-cd-playground.git"
+  },
+  "author": "Pavel Baliuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jsnow0177/github-ci-cd-playground/issues"
+  },
+  "homepage": "https://github.com/jsnow0177/github-ci-cd-playground#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
