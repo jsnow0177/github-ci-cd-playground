@@ -12,7 +12,6 @@ on:
 jobs:
   deploy:
     name: Deploy Docker Image to server
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy docker container
