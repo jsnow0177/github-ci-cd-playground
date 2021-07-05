@@ -14,12 +14,14 @@ jobs:
     name: Deploy Docker Image to server
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy docker container
-        uses: JimCronqvist/action-ssh@master
-        with:
-          hosts: "github-actions@65.21.109.224:9922"
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
-          debug: false
-          command: |
-            cd /srv
-            echo "test" > test.txt
+      - name: Store private key
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa
+          echo "Host hetzner-host" >> ~/.ssh/config
+          echo "    HostName 65.21.109.224" >> ~/.ssh/config
+          echo "    Port 9922" >> ~/.ssh/config
+          echo "    User github-actions" >> ~/.ssh/config
+          echo "    IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
+
+      - name: Put a test text
+        run: ssh hetzner-host -t 'cd /srv && echo "test" > test.txt'
