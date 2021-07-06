@@ -19,5 +19,4 @@ jobs:
       - name: Store private key
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ./id_rsa
-          cat ~/.ssh/known_hosts
-          ssh pavel@135.181.204.220 -4 -p 9922 -i $(pwd)/id_rsa 'ls -lah /srv'
+          ssh pavel@135.181.204.220 -4 -p 9922 -i $(pwd)/id_rsa -o StrictHostKeyChecking=no 'ls -lah /srv'
