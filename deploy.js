@@ -10,14 +10,22 @@ if(arguments.length < 3)
 const ssh = new NodeSSH();
 
 (async () => {
-    await ssh.connect({
-        host: arguments[1],
-        username: arguments[0],
-        port: 9922,
-        privateKey: fs.readFileSync(arguments[2], 'utf8')
-    });
+    try {
+        await ssh.connect({
+            host: arguments[1],
+            username: arguments[0],
+            port: 9922,
+            privateKey: fs.readFileSync(arguments[2], 'utf8')
+        });
+    }catch(err){
+        console.log(`Error occurred`, err);
+    }
 
-    await ssh.execCommand("cd /srv && echo \"Test\" >> test.txt", {cwd: '/', stream: 'stdout'});
+    try {
+        await ssh.execCommand("touch test.txt", {cwd: '/srv', stream: 'stdout'});
+    }catch(e){
+        console.log(`Error occurred`, e);
+    }
 
     ssh.dispose();
 })();
