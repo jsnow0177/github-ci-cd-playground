@@ -16,17 +16,7 @@ jobs:
     steps:
       - name: Store private key
         run: |
-          mkdir ~/.ssh
-          touch ~/.ssh/id_rsa
-          touch ~/.ssh/config
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa
-          echo "Host hetzner-host" >> ~/.ssh/config
-          echo "    HostName 135.181.204.220" >> ~/.ssh/config
-          echo "    StrictHostKeyChecking no"
-          echo "    UserKnownHostsFile /dev/null"
-          echo "    Port 9922" >> ~/.ssh/config
-          echo "    User pavel" >> ~/.ssh/config
-          echo "    IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
-
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ./id_rsa
+          node run ./deploy.js pavel 135.181.204.220 ./id_rsa
       - name: Put a test text
         run: ssh hetzner-host -tt 'cd /srv && echo "test" > test.txt'

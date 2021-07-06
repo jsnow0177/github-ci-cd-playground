@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jsnow0177/github-ci-cd-playground#readme",
   "devDependencies": {
+    "node-ssh": "^11.1.1",
     "typescript": "^4.3.5"
   }
 }
