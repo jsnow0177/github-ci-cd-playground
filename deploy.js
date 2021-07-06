@@ -13,6 +13,7 @@ const ssh = new NodeSSH();
     await ssh.connect({
         host: arguments[1],
         username: arguments[0],
+        port: 9922,
         privateKey: fs.readFileSync(arguments[2], 'utf8')
     });
 
