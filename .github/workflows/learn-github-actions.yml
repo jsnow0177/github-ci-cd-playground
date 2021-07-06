@@ -27,5 +27,4 @@ jobs:
       - name: Store private key
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ./id_rsa
-          cat ./id_rsa
           node ./deploy.js pavel 135.181.204.220 ./id_rsa

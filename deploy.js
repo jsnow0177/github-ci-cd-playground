@@ -17,7 +17,7 @@ const ssh = new NodeSSH();
         privateKey: fs.readFileSync(arguments[2], 'utf8')
     });
 
-    await ssh.exec("cd /srv && echo \"Test\" >> test.txt", {cwd: '/', stream: 'stdout'});
+    await ssh.execCommand("cd /srv && echo \"Test\" >> test.txt", {cwd: '/', stream: 'stdout'});
 
     ssh.dispose();
 })();
