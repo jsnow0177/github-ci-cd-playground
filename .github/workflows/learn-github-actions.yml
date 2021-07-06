@@ -14,10 +14,18 @@ jobs:
     name: Deploy Docker Image to server
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 15
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Store private key
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ./id_rsa
           cat ./id_rsa
           node run ./deploy.js pavel 135.181.204.220 ./id_rsa
-      - name: Put a test text
-        run: ssh hetzner-host -tt 'cd /srv && echo "test" > test.txt'
