@@ -22,6 +22,8 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa
           echo "Host hetzner-host" >> ~/.ssh/config
           echo "    HostName jsnow.in.ua" >> ~/.ssh/config
+          echo "    StrictHostKeyChecking no"
+          echo "    UserKnownHostsFile /dev/null"
           echo "    Port 9922" >> ~/.ssh/config
           echo "    User pavel" >> ~/.ssh/config
           echo "    IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
