@@ -29,4 +29,4 @@ jobs:
           echo "    IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
 
       - name: Put a test text
-        run: ssh hetzner-host -t 'cd /srv && echo "test" > test.txt'
+        run: ssh hetzner-host -tt 'cd /srv && echo "test" > test.txt'
