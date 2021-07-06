@@ -21,7 +21,7 @@ jobs:
           touch ~/.ssh/config
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/.ssh/id_rsa
           echo "Host hetzner-host" >> ~/.ssh/config
-          echo "    HostName jsnow.in.ua" >> ~/.ssh/config
+          echo "    HostName 135.181.204.220" >> ~/.ssh/config
           echo "    StrictHostKeyChecking no"
           echo "    UserKnownHostsFile /dev/null"
           echo "    Port 9922" >> ~/.ssh/config
